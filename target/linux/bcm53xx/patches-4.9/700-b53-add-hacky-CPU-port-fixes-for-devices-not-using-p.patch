@@ -18,13 +18,13 @@ Signed-off-by: Rafał Miłecki <zajec5@gmail.com>
  #include <linux/of_net.h>
  #include <linux/platform_data/b53.h>
 +#include <linux/of.h>
-
+ 
  #include "b53_regs.h"
  #include "b53_priv.h"
 @@ -1579,6 +1580,29 @@ static int b53_switch_init(struct b53_de
  			return ret;
  	}
-
+ 
 +	/* Set correct CPU port */
 +	if (of_machine_is_compatible("asus,rt-ac87u"))
 +		sw_dev->cpu_port = 7;
@@ -37,8 +37,8 @@ Signed-off-by: Rafał Miłecki <zajec5@gmail.com>
 +
 +	/* Enable extra ports */
 +	if (of_machine_is_compatible("tenda,ac9") ||
-+		of_machine_is_compatible("tplink,archer-c1200-v1") ||
-+		of_machine_is_compatible("tplink,archer-c1200-v3"))
++		of_machine_is_compatible("tplink,archer-c1200-v1")i ||
++               of_machine_is_compatible("tplink,archer-c1200-v3"))
 +		dev->enabled_ports |= BIT(5);
 +
 +	/*
@@ -51,3 +51,4 @@ Signed-off-by: Rafał Miłecki <zajec5@gmail.com>
 +
  	dev->enabled_ports |= BIT(sw_dev->cpu_port);
  	sw_dev->ports = fls(dev->enabled_ports);
+ 
