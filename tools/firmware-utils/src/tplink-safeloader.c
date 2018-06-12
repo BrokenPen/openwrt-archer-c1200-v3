@@ -491,9 +491,10 @@ static struct device_info boards[] = {
 	{
 		.id = "ARCHER-C1200-V3",
 		.vendor = "",
-		.support_list = "SupportList:\r\n"
+		.support_list =
+						"SupportList:\r\n"
 						"{product_name:Archer C1200,product_ver:3.0.0,special_id:00000000}\r\n"
-						"{product_name:Archer C1200,product_ver:3.0.0,special_id:55530000}\r\n",
+						"{product_name:Archer C1200,product_ver:3.0.0,special_id:55530000}\r\n"
 						"{product_name:Archer C1200,product_ver:3.0.0,special_id:43410000}\r\n",
 		.support_trail = '\x00',
 		.soft_ver = "soft_ver:1.1.1\n",
