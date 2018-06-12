@@ -449,7 +449,7 @@ static struct device_info boards[] = {
 		.first_sysupgrade_partition = "os-image",
 		.last_sysupgrade_partition = "file-system",
 	},
-	
+
 	/** Firmware layout for the C1200 */
 	{
 		.id = "ARCHER-C1200-V1",
@@ -458,7 +458,7 @@ static struct device_info boards[] = {
 						"{product_name:Archer C1200,product_ver:1.0.0,special_id:45550000}\r\n",
 		.support_trail = '\x00',
 		.soft_ver = "soft_ver:1.1.1\n",
-		
+
 		.partitions = {
 			{"factory-boot", 0x00000, 0x40000},
 			{"fs-uboot", 0x40000, 0x40000},
@@ -482,7 +482,46 @@ static struct device_info boards[] = {
 			{"radio", 0xff0000, 0x10000},
 			{NULL, 0, 0}
 		},
-		
+
+		.first_sysupgrade_partition = "os-image",
+		.last_sysupgrade_partition = "file-system",
+	},
+
+	/** Firmware layout for the C1200 v3 */
+	{
+		.id = "ARCHER-C1200-V3",
+		.vendor = "",
+		.support_list = "SupportList:\r\n"
+						"{product_name:Archer C1200,product_ver:3.0.0,special_id:00000000}\r\n"
+						"{product_name:Archer C1200,product_ver:3.0.0,special_id:55530000}\r\n",
+						"{product_name:Archer C1200,product_ver:3.0.0,special_id:43410000}\r\n",
+		.support_trail = '\x00',
+		.soft_ver = "soft_ver:1.1.1\n",
+
+		.partitions = {
+			{"factory-boot", 0x00000, 0x40000},
+			{"fs-uboot", 0x40000, 0x40000},
+			{"os-image", 0x80000, 0x200000},
+			{"file-system", 0x280000, 0xc80000},
+			{"default-mac", 0xf00000, 0x00200},
+			{"pin", 0xf00200, 0x00100},
+			{"device-id", 0xf00300, 0x00100},
+			{"certificate", 0xf00400, 0x0fc00},
+			{"product-info", 0xf10000, 0x06000},
+			{"soft-version", 0xf16000, 0x01000},
+			{"extra-para", 0xf17000, 0x01000},
+			{"support-list", 0xf18000, 0x08000},
+			{"profile", 0xf20000, 0x03000},
+			{"default-config", 0xf23000, 0x0d000},
+			{"user-config", 0xf30000, 0x40000},
+			{"qos-db", 0xf70000, 0x40000},
+			{"partition-table", 0xfb0000, 0x10000},
+			{"log", 0xfc0000, 0x20000},
+			{"radio_bk", 0xfe0000, 0x10000},
+			{"radio", 0xff0000, 0x10000},
+			{NULL, 0, 0}
+		},
+
 		.first_sysupgrade_partition = "os-image",
 		.last_sysupgrade_partition = "file-system",
 	},
