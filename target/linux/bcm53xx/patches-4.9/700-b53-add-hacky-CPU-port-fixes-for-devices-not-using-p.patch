@@ -50,5 +50,4 @@ Signed-off-by: Rafał Miłecki <zajec5@gmail.com>
 +		sw_dev->cpu_port = 5;
 +
  	dev->enabled_ports |= BIT(sw_dev->cpu_port);
- 	sw_dev->ports = fls(dev->enabled_ports);
- 
+ 	sw_dev->ports = fls(dev->enabled_ports); 
